@@ -1,0 +1,1 @@
+ALTER TABLE public.orthodontic_cases ADD COLUMN IF NOT EXISTS appliance_brand text;

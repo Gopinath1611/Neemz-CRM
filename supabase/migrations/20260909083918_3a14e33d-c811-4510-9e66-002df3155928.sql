@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX IF NOT EXISTS expenses_purchase_id_unique ON public.expenses (purchase_id) WHERE purchase_id IS NOT NULL;

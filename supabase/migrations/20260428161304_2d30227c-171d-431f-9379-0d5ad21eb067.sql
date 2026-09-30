@@ -1,0 +1,1 @@
+ALTER TABLE public.employees ADD COLUMN IF NOT EXISTS extra_details JSONB NOT NULL DEFAULT '{}'::jsonb;

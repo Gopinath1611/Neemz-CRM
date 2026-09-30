@@ -1,0 +1,3 @@
+ALTER TABLE public.medicines
+ADD COLUMN IF NOT EXISTS unit_cost numeric NOT NULL DEFAULT 0,
+ADD COLUMN IF NOT EXISTS unit text NOT NULL DEFAULT 'tablet';

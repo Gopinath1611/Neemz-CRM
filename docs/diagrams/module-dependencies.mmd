@@ -1,0 +1,17 @@
+graph TD
+  Workflow --> Billing
+  Workflow --> Inventory
+  Billing --> Payments
+  Payments --> Finance
+  Purchases --> Inventory
+  Purchases --> Expenses
+  Expenses --> Finance
+  Deposits --> Finance
+  Pharmacy --> Inventory
+  Ortho --> Payments
+  EMI --> Payments
+  Finance --> Analytics
+  Finance --> FY[FY Planning]
+  Analytics --> Reports
+  Workflow --> PatientHistory
+  Payments --> PatientHistory

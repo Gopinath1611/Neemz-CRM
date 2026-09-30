@@ -1,0 +1,1 @@
+ALTER TABLE public.lab_orders ADD COLUMN IF NOT EXISTS doctor text;

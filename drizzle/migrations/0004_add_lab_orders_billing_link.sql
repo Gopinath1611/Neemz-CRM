@@ -1,0 +1,1 @@
+ALTER TABLE public.lab_orders ADD COLUMN billing_id uuid REFERENCES public.billings(id) ON DELETE SET NULL;

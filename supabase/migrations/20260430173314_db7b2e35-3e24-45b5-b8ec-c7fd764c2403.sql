@@ -1,0 +1,1 @@
+ALTER TABLE public.emi_insurance_cases ADD COLUMN IF NOT EXISTS treatment_name text;

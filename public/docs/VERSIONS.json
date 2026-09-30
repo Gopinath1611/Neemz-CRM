@@ -1,0 +1,15 @@
+[
+  {
+    "version": "v2.0",
+    "date": "2026-06-30",
+    "summary": "Full documentation suite (11 docs + diagrams + enhanced viewer).",
+    "supersedes": "v1.0",
+    "git": "ad3055ff"
+  },
+  {
+    "version": "v1.0",
+    "date": "2026-06-30",
+    "summary": "Initial Finance Architecture Audit + System Documentation viewer.",
+    "git": "ad3055ff"
+  }
+]

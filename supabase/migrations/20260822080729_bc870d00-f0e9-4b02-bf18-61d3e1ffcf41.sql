@@ -1,0 +1,1 @@
+UPDATE public.connected_apps SET metadata = metadata - 'wa_last_rejected_sample' WHERE id = '2f6bd2ed-70b9-4132-b11e-4b14d4860749';

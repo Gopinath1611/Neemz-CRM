@@ -1,0 +1,12 @@
+flowchart LR
+  CI[Check-in] --> CON[Consultation]
+  CON --> TX[Treatment Plan]
+  TX --> DX[Diagnostics]
+  TX --> ORT[Ortho optional]
+  TX --> PAY[Payment Step]
+  PAY --> RR[Review Request]
+  RR --> OUT[Checkout]
+  PAY -.->|writes| BILL[(billings + items + payments)]
+  PAY -.->|consumes| INV[(inventory)]
+  DX -.->|writes| DXO[(diagnostic_orders)]
+  ORT -.->|writes| ORTHO[(ortho cases + payments)]

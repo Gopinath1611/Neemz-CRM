@@ -1,0 +1,1 @@
+ALTER TABLE public.lab_works ADD COLUMN IF NOT EXISTS lab_name text DEFAULT '';

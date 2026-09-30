@@ -1,0 +1,13 @@
+project_id = "kumtrpubuupvwgbwsqix"
+
+[functions.whatsapp-webhook]
+verify_jwt = false
+
+[functions.patient-doc]
+verify_jwt = false
+
+[functions.whatsapp-upsert-google-review-request]
+verify_jwt = false
+
+[functions.instagram-webhook]
+verify_jwt = false

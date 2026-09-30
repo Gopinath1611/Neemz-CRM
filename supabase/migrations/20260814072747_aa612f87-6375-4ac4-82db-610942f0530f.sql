@@ -1,0 +1,1 @@
+ALTER TABLE public.diagnostic_orders ADD COLUMN IF NOT EXISTS source text;

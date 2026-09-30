@@ -1,0 +1,1 @@
+ALTER TABLE public.fy_doctor_targets ADD COLUMN IF NOT EXISTS treatment_type text;

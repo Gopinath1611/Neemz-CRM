@@ -1,0 +1,2 @@
+ALTER TABLE public.orthodontic_photos ADD COLUMN IF NOT EXISTS visit_id uuid REFERENCES public.orthodontic_visits(id) ON DELETE SET NULL;
+CREATE INDEX IF NOT EXISTS idx_ortho_photos_visit ON public.orthodontic_photos(visit_id);

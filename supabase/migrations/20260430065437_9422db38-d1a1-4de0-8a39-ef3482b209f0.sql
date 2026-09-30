@@ -1,0 +1,2 @@
+ALTER TABLE public.role_metrics ADD COLUMN IF NOT EXISTS target_kind_id uuid REFERENCES public.role_target_kinds(id) ON DELETE CASCADE;
+CREATE INDEX IF NOT EXISTS idx_role_metrics_target_kind_id ON public.role_metrics(target_kind_id);

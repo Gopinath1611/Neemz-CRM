@@ -1,0 +1,2 @@
+ALTER TABLE public.patients ADD COLUMN IF NOT EXISTS is_high_ticket boolean NOT NULL DEFAULT false;
+CREATE INDEX IF NOT EXISTS idx_patients_is_high_ticket ON public.patients(is_high_ticket) WHERE is_high_ticket = true;

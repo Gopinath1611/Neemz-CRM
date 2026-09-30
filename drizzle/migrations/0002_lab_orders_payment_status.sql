@@ -1,0 +1,2 @@
+ALTER TABLE public.lab_orders ADD COLUMN lab_payment_status text NOT NULL DEFAULT 'unpaid';
+COMMENT ON COLUMN public.lab_orders.lab_payment_status IS 'Payment status of the clinic payment to the lab vendor (unpaid/paid).';

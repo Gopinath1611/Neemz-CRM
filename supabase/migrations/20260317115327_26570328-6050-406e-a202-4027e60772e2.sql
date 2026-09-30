@@ -1,0 +1,1 @@
+ALTER TABLE public.treatment_plan_items ADD COLUMN IF NOT EXISTS status text NOT NULL DEFAULT 'accepted';

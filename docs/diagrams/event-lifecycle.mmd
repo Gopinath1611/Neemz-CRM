@@ -1,0 +1,20 @@
+sequenceDiagram
+  participant U as User
+  participant W as Workflow UI
+  participant DB as Postgres
+  participant T as Triggers
+  participant F as Finance UI
+  U->>W: Check-in patient
+  W->>DB: INSERT appointments, patient_checkins
+  U->>W: Complete treatment
+  W->>DB: INSERT treatment_plans
+  U->>W: Generate bill ₹1000
+  W->>DB: INSERT billings, billing_items
+  T-->>DB: sync_referral_from_billing
+  U->>W: Take payment ₹1000
+  W->>DB: INSERT billing_payments
+  T-->>DB: set_billing_payment_dedupe_key
+  W->>DB: UPDATE billings.amount_paid, payment_status
+  F->>DB: SELECT billing_payments WHERE payment_date in period
+  DB-->>F: Collected ↑ ₹1000
+  Note over F,DB: FY actuals drift until recompute_fy_actuals RPC

@@ -1,0 +1,1 @@
+CREATE UNIQUE INDEX IF NOT EXISTS inventory_items_sku_unique ON public.inventory_items (sku) WHERE sku IS NOT NULL;

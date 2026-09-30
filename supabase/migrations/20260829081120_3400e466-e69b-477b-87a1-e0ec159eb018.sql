@@ -1,0 +1,1 @@
+ALTER TABLE public.screening_leads ADD COLUMN IF NOT EXISTS doctor_name TEXT;

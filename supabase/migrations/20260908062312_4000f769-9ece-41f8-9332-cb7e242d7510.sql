@@ -1,0 +1,1 @@
+REVOKE EXECUTE ON FUNCTION public.can_register_patient(uuid) FROM PUBLIC, anon, authenticated;

@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 20% 98%;
+    --foreground: 220 25% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 10%;
+
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 210 20% 95%;
+    --secondary-foreground: 220 25% 20%;
+
+    --muted: 210 15% 93%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 172 66% 40%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 20% 90%;
+    --input: 214 20% 90%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 220 25% 10%;
+    --sidebar-foreground: 210 15% 85%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 20% 16%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 220 20% 18%;
+    --sidebar-ring: 217 91% 60%;
+
+    /* CRM custom tokens */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+
+    --source-google: 4 80% 52%;
+    --source-meta: 217 89% 55%;
+    --source-website: 142 71% 45%;
+    --source-walkin: 38 92% 50%;
+
+    --font-display: 'Space Grotesk', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+
+  .dark {
+    --background: 222 25% 8%;
+    --foreground: 210 20% 95%;
+    --card: 222 20% 12%;
+    --card-foreground: 210 20% 95%;
+    --popover: 222 20% 12%;
+    --popover-foreground: 210 20% 95%;
+    --primary: 217 91% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 16%;
+    --secondary-foreground: 210 20% 90%;
+    --muted: 220 15% 18%;
+    --muted-foreground: 215 15% 55%;
+    --accent: 172 66% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 222 30% 6%;
+    --sidebar-foreground: 210 15% 80%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 222 25% 12%;
+    --sidebar-accent-foreground: 210 15% 90%;
+    --sidebar-border: 222 25% 12%;
+    --sidebar-ring: 217 91% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    font-size: 17px;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    overscroll-behavior-y: none;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer utilities {
+  .gradient-primary {
+    background: linear-gradient(135deg, hsl(217 91% 50%), hsl(217 91% 65%));
+  }
+  .gradient-accent {
+    background: linear-gradient(135deg, hsl(172 66% 40%), hsl(172 66% 55%));
+  }
+  .shadow-card {
+    box-shadow: 0 1px 3px 0 hsl(220 25% 10% / 0.06), 0 1px 2px -1px hsl(220 25% 10% / 0.06);
+  }
+  .shadow-card-hover {
+    box-shadow: 0 4px 12px 0 hsl(220 25% 10% / 0.08), 0 2px 4px -2px hsl(220 25% 10% / 0.06);
+  }
+  /* Scale up fonts in workflow sections for doctor readability */
+  .workflow-scaled-text .text-xs {
+    font-size: 0.8125rem;
+    line-height: 1.25rem;
+  }
+  .workflow-scaled-text .text-\[10px\] {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+  .workflow-scaled-text .text-\[9px\] {
+    font-size: 0.6875rem;
+    line-height: 0.875rem;
+  }
+
+  /* Scrollbar styling for easy scrolling */
+  .scrollable::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  .scrollable::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 5px;
+  }
+  .scrollable::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.4);
+    border-radius: 5px;
+    border: 2px solid hsl(var(--muted));
+  }
+  .scrollable::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.6);
+  }
+  .scrollable::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+
+  /* Global scrollbar style */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--muted));
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.35);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.55);
+  }
+
+  /* ============================================================
+     GLOBAL PAGE SHELL — consistent padding + max-width so lists
+     never stretch edge-to-edge when the sidebar is open.
+     ============================================================ */
+  .page-shell {
+    width: 100%;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  @media (min-width: 1024px) {
+    .page-shell {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+  .page-header {
+    margin-bottom: 1.25rem;
+  }
+
+  /* ============================================================
+     STICKY HORIZONTAL SCROLLBAR for tables / lists.
+     Wrap the scrollable table in `.sticky-x-scroll`. The wrapper
+     is height-constrained to the viewport so the horizontal
+     scrollbar stays visible at the bottom of the visible area
+     regardless of how many rows are rendered.
+     ============================================================ */
+  .sticky-x-scroll {
+    overflow-x: auto;
+    overflow-y: auto;
+    max-height: calc(100vh - 220px);
+    scrollbar-gutter: stable;
+  }
+  .sticky-x-scroll::-webkit-scrollbar {
+    height: 12px;
+    width: 10px;
+  }
+  .sticky-x-scroll::-webkit-scrollbar-thumb {
+    background: hsl(var(--muted-foreground) / 0.45);
+    border-radius: 6px;
+  }
+  .sticky-x-scroll::-webkit-scrollbar-track {
+    background: hsl(var(--muted) / 0.6);
+    border-radius: 6px;
+  }
+  .sticky-x-scroll table thead th {
+    position: sticky;
+    top: 0;
+    z-index: 5;
+    background: hsl(var(--card));
+  }
+
+  /* ============================================================
+     GLOBAL COMPACT TABLE SPACING — applied to all list/table views
+     inside the page shell. Reduces horizontal padding between
+     columns/headers while keeping cells aligned under their headers.
+     ============================================================ */
+  .page-shell table :where(thead th, tbody td) {
+    padding: 0.5rem 0.5rem;
+  }
+  .page-shell table th {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  /* Standalone compact-table utility for tables outside the shell */
+  .compact-table :where(thead th, tbody td),
+  .compact-table th,
+  .compact-table td {
+    padding: 0.5rem 0.5rem;
+  }
+
+  /* Compact spacing inside sticky-scroll wrappers */
+  .sticky-x-scroll table :where(thead th, tbody td) {
+    padding: 0.5rem 0.5rem;
+  }
+}
+
+
+/* Firefox scrollbar */
+@supports (scrollbar-width: thin) {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: hsl(var(--muted-foreground) / 0.35) hsl(var(--muted));
+  }
+  .sticky-x-scroll {
+    scrollbar-width: auto;
+  }
+}

@@ -1,0 +1,17 @@
+erDiagram
+  patients ||--o{ billings : has
+  billings ||--o{ billing_items : contains
+  billings ||--o{ billing_payments : receives
+  patients ||--o{ deposits : has
+  deposits ||--o{ deposit_invoices : allocates
+  suppliers ||--o{ purchases : supplies
+  purchases ||--o{ purchase_items : contains
+  purchase_items }o--|| inventory_items : restocks
+  inventory_items ||--o{ inventory_transactions : moves
+  purchases ||..o{ expenses : "auto via trigger"
+  expense_categories ||--o{ expenses : categorizes
+  patients ||--o{ orthodontic_cases : has
+  orthodontic_cases ||--o{ orthodontic_payments : receives
+  patients ||--o{ emi_insurance_cases : has
+  branches ||--o{ inventory_items : owns
+  billings ||..o{ referrals : "trigger sync_referral_from_billing"

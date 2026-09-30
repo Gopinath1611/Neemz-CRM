@@ -1,0 +1,16 @@
+sequenceDiagram
+  participant U as User
+  participant P as Purchases UI
+  participant DB as Postgres
+  participant T as Triggers
+  participant F as Finance UI
+  U->>P: Create purchase ₹3000 (Ordered)
+  P->>DB: INSERT purchases, purchase_items
+  U->>P: Mark Received
+  T-->>DB: set_purchase_delivery_date
+  T-->>DB: handle_purchase_inventory_update (qty ↑)
+  U->>P: Mark Paid
+  T-->>DB: sync_purchase_to_expense → INSERT expenses
+  F->>DB: SELECT expenses WHERE expense_date in period
+  DB-->>F: Expense KPI ↑ ₹3000
+  Note over F: FY Profit only after recompute_fy_actuals

@@ -1,0 +1,1 @@
+GRANT EXECUTE ON FUNCTION public.can_register_patient(uuid) TO authenticated;

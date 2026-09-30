@@ -1,0 +1,18 @@
+flowchart TD
+  W[Clinic Workflow / PaymentStep] -->|INSERT| B[billings]
+  W -->|INSERT| BI[billing_items]
+  W -->|INSERT| BP[billing_payments]
+  BP -->|UPDATE amount_paid| B
+  B -->|trigger sync_referral_from_billing| REF[referrals]
+  P[Purchases] -->|status=paid trigger| EXP[expenses]
+  P -->|trigger handle_purchase_inventory_update| INV[inventory_items]
+  P --> IT[inventory_transactions]
+  ME[Manual Expense] --> EXP
+  D[Deposits] --> DEP[deposits]
+  OP[Ortho Payment] --> ORTH[orthodontic_payments]
+  B --> FIN[Finance.tsx KPIs]
+  BP --> FIN
+  EXP --> FIN
+  FIN --> RPT[FinanceReport / GrowthReport]
+  FIN -.recompute_fy_actuals.-> FYA[fy_actual_tracking]
+  FYA --> FYP[FY Pages]

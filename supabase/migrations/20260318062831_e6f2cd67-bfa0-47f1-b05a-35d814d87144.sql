@@ -1,0 +1,1 @@
+ALTER TABLE public.treatment_plan_items ADD COLUMN doctor text DEFAULT NULL;
